@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('building_id')->constrained()->onDelete('cascade');
             $table->foreignId('floor_id')->constrained()->onDelete('cascade');
             $table->string('room_number');
             $table->enum('status', ['available', 'occupied', 'unused'])->default('available');

@@ -17,7 +17,9 @@ class RentalAgreementResource extends Resource
 {
     protected static ?string $model = RentalAgreement::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
+
+        protected static ?int $navigationSort = 5;
 
     public static function form(Form $form): Form
     {

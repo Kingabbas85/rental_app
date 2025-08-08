@@ -21,11 +21,16 @@ class BuildingResource extends Resource
 
     protected static bool $shouldSkipAuthorization = true;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    // protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    protected static ?string $navigationIcon = 'heroicon-o-home';
+
 
     // public static function shouldRegisterNavigation(): bool
     // {
     //     return true;
+    protected static ?int $navigationSort = 01;
+
     // }
 
 
@@ -45,6 +50,7 @@ class BuildingResource extends Resource
     {
         return $table
             ->columns([
+                 Tables\Columns\TextColumn::make('index')->rowIndex(),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')

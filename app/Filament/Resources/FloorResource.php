@@ -17,7 +17,10 @@ class FloorResource extends Resource
 {
     protected static ?string $model = Floor::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-building-office-2';
+
+    
+    protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
     {
@@ -27,8 +30,7 @@ class FloorResource extends Resource
                     ->relationship('building', 'name')
                     ->required(),
                 Forms\Components\TextInput::make('floor_number')
-                    ->required()
-                    ->numeric(),
+                    ->required(),
             ]);
     }
 
@@ -36,6 +38,7 @@ class FloorResource extends Resource
     {
         return $table
             ->columns([
+                 Tables\Columns\TextColumn::make('index')->rowIndex(),
                 Tables\Columns\TextColumn::make('building.name')
                     ->numeric()
                     ->sortable(),

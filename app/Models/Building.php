@@ -11,10 +11,13 @@ class Building extends Model
     use HasFactory;
     protected $fillable = ['name', 'address', 'floors'];
 
-    protected static bool $shouldSkipAuthorization = true;
-
     public function floors(): HasMany
     {
         return $this->hasMany(Floor::class);
+    }
+
+     public function rooms(): HasMany
+    {
+        return $this->hasMany(Room::class);
     }
 }

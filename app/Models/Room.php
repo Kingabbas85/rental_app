@@ -9,11 +9,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Room extends Model
 {
     use HasFactory;
-    protected $fillable = ['floor_id', 'room_number', 'room_type', 'rent_amount'];
+    protected $fillable = ['building_id','floor_id', 'room_number', 'room_type', 'rent_amount'];
 
     public function floor(): BelongsTo
     {
         return $this->belongsTo(Floor::class);
+    }
+
+    public function building(): BelongsTo
+    {
+        return $this->belongsTo(Building::class);
     }
 
     public function tenants(): HasMany
